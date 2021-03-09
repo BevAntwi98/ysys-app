@@ -5,11 +5,11 @@ import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
 import { FooterComponent } from "./components/Footer/FooterComponent.jsx";
 
-const api = {
-  books: "https://www.anapioficeandfire.com/api/books",
-  houses: "https://www.anapioficeandfire.com/api/houses",
-  characters: "https://www.anapioficeandfire.com/api/characters",
-};
+// const api = {
+//   books: "https://www.anapioficeandfire.com/api/books",
+//   houses: "https://www.anapioficeandfire.com/api/houses",
+//   characters: "https://www.anapioficeandfire.com/api/characters",
+// };
 
 const App = () => {
   // TODO - this is the "main" component for our app, and it will include all the global state that we care about
@@ -50,33 +50,12 @@ const App = () => {
   const [feed, setFeed] = useState([]);
   const [query, setQuery] = useState("");
 
-  const search = (query) => {
-    fetch(`${api.characters}?name=${query}`)
-      .then((resp) => resp.json())
-      .catch((error) => {
-        Window.alert("you spelt the name wrong! try again :)");
-        throw error;
-      })
-      .then((data) => {
-        setQuery("");
-        console.log(data);
-      });
-  };
-
   return (
     <div className="app">
       <HeaderComponent
         query={query}
         setQuery={setQuery}
       />
-      <input
-        className="button"
-        type="submit"
-        value="SEARCH"
-        onClick={() => {
-          search(query);
-        }}
-      ></input>
 
       <SidebarComponent query={query} setQuery={setQuery} />
       <button

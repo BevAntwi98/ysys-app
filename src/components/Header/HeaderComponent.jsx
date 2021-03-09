@@ -1,5 +1,6 @@
 import React from "react";
 import "./HeaderComponent.css";
+import "../Images/jon.png"
 
 
 /* TODO [STRETCH] - add in any controls that you'd like in your header
@@ -7,6 +8,15 @@ import "./HeaderComponent.css";
 
         */
 // TODO - make sure HeaderComponent is expecting the right props (if any)!
+
+
+const api = {
+  books: "https://www.anapioficeandfire.com/api/books",
+  houses: "https://www.anapioficeandfire.com/api/houses",
+  characters: "https://www.anapioficeandfire.com/api/characters",
+};
+
+
 
 export const HeaderComponent = ({ query, setQuery }) => {
   
@@ -27,6 +37,22 @@ export const HeaderComponent = ({ query, setQuery }) => {
     resetQueryField();
   };
 
+  //fetch function for entering a name 
+  const search = (query) => {
+    fetch(`${api.characters}?name=${query}`)
+      .then((resp) => resp.json())
+      .catch((error) => {
+        Window.alert("you spelt the name wrong! try again :)");
+        throw error;
+      })
+      .then((data) => {
+        setQuery("");
+        console.log(data);
+      });
+  };
+
+
+  //returns searcbar and button 
   return (
     <header className={"header"}>
       <div>
@@ -34,10 +60,18 @@ export const HeaderComponent = ({ query, setQuery }) => {
           value={query}
           type="text"
           className="searchbar"
-          placeholder="Enter character name..."
+          placeholder="...Enter character name"
           autoComplete="off"
           onChange={handleSearchInputChange}
         />
+         <input
+        className="button"
+        type="submit"
+        value="SEARCH"
+        onClick={() => {
+          search(query);
+        }}
+      ></input>
       </div>
       Game of Thrones React App
     </header>

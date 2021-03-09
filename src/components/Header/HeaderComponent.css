@@ -1,31 +1,53 @@
 /* TODO add some general header styles */
 @import url("https://fonts.googleapis.com/css2?family=Khand:wght@300&display=swap");
+/* @import "../Images/jon.png"; */
 
 .header {
-    margin: 12px;
-    padding-bottom: 10px;
-    text-align: left;
-    font-size: 40px;
-    font-family: "Khand", serif;
+  margin: 12px;
+  padding-bottom: 10px;
+  text-align: left;
+  font-size: 40px;
+  font-family: "Khand", serif;
+  background-image: url("../Images/jon.png");
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-position: 35%;
 }
-.searchbar{
-    text-align: left;
-    margin:-10px;
-    float:right;
-    width: 200px;
-    border-radius: 1rem;
-    font-size: 20px;
+.searchbar {
+  text-align: left;
+  margin: -10px;
+  margin-top:6px;
+  float: right;
+  width: 170px;
+  border-radius: 1rem;
+  font-size: 20px;
 }
 
-input[type=text]{
-    transition: width 0.6s ease-out;
+input[type="text"] {
+  transition: width 0.6s ease-out;
 }
-input[type=text]:focus{
-    width: 25%;
+input[type="text"]:focus {
+  width: 30%;
 }
-.button{
-    text-align: left;
+
+.filter {
+  text-align: left;
 }
-.filter{
-    text-align:left;
+.button {
+  margin: -7px;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+  border-radius: 1rem;
+  font-size: 17px;
+  text-align: right;
+}
+.button:hover {
+  background-color: rgb(189, 213, 216);
+}
+
+.button:active {
+  background-color: rgb(189, 213, 216);
+  box-shadow: 0 3px #666;
+  transform: translateY(2px);
 }

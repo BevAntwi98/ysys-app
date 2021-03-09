@@ -5,4 +5,15 @@
     right:0;
     font-size:small;
     border-radius: 1rem;
+    margin-right:100px;
+  }
+    
+  .sound:hover {
+    background-color: rgb(189, 213, 216);
+  }
+  
+  .sound:active {
+    background-color: rgb(189, 213, 216);
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
   }
