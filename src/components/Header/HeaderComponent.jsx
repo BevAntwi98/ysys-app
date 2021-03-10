@@ -39,16 +39,13 @@ export const HeaderComponent = ({ query, setQuery }) => {
 
   //fetch function for entering a name 
   const search = (query) => {
-    fetch(`${api.characters}?name=${query}`)
-      .then((resp) => resp.json())
-      .catch((error) => {
-        Window.alert("you spelt the name wrong! try again :)");
-        throw error;
-      })
-      .then((data) => {
+    return fetch(`${api.characters}?name=${query}`)
+      .then((resp) => {
+      return resp.json().then((data) => {
         setQuery("");
         console.log(data);
-      });
+       });
+      })
   };
 
 

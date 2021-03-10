@@ -4,6 +4,7 @@ import { HeaderComponent } from "./components/Header/HeaderComponent";
 import { SidebarComponent } from "./components/Sidebar/SidebarComponent";
 import { FeedComponent } from "./components/Feed/FeedComponent";
 import { FooterComponent } from "./components/Footer/FooterComponent.jsx";
+import { CharacterCard } from "./components/STRETCH_Cards/CharacterCard";
 
 // const api = {
 //   books: "https://www.anapioficeandfire.com/api/books",
@@ -39,33 +40,31 @@ const App = () => {
 
   // TODO - pass in expanded sidebar state to components that need to know about it/update it.
 
-  const getData = () => {
-    return fetch(
-      `https://www.anapioficeandfire.com/api/characters?page=1&pageSize=10`
-    ).then((response) => {
-      return response.json();
-    });
-  };
+  // const getData = () => {
+  //   return fetch(
+  //     `https://www.anapioficeandfire.com/api/characters?823`
+  //   ).then((response) => {
+  //     return response.json();
+  //   });
+  // };
 
   const [feed, setFeed] = useState([]);
   const [query, setQuery] = useState("");
 
   return (
+    //gotta return the functions here somehow...
     <div className="app">
-      <HeaderComponent
-        query={query}
-        setQuery={setQuery}
-      />
+      <HeaderComponent query={query} setQuery={setQuery} />
 
       <SidebarComponent query={query} setQuery={setQuery} />
-      <button
+      {/* <button
         className="fetchButton"
         onClick={() => {
           getData().then((response) => setFeed(response));
         }}
       >
         fetch
-      </button>
+      </button> */}
 
       <FeedComponent feed={feed} />
       <FooterComponent />

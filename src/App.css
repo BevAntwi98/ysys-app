@@ -1,10 +1,10 @@
 
 .app {
+  content:"";
   height: 100%;
   margin: 10px;
   padding: 10px;
-
-  /* border: 1px dotted indigo; */
+  background-image: url("./components/Images/king.png");
 }
 .button {
   z-index: -1;
